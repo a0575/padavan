@@ -58,6 +58,7 @@ jobs:
           image_name=images_${build_variant}_${GIT_VERSION} || image_name=images_${build_variant}
           cd ${images_dir}; md5sum *.trx |tee md5sum.txt; 7z a -mx=9 ${image_name}.7z ./*
           echo "image_name=${image_name}" >> $GITHUB_ENV
+          echo "strDate=$(TZ=UTC-8 date +%Y-%m-%d)" >> $GITHUB_ENV
           
       - name: Upload images to Artifact
         if: ${{ github.event_name != 'release' && success() }}
@@ -66,11 +67,12 @@ jobs:
           name: ${{ env.image_name }}
           path: ${{ env.images_dir }}/*.7z
           
-      - name: Upload images to Releases
+      - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.workflow_token }}
           file: ${{ env.images_dir }}/*.trx
-          tag: padavan
-          overwrite: true
+          tag: ${{env.strDate}}
           file_glob: true
+          overwrite: true
+          release_name: ${{env.strDate}}-padavan
