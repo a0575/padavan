@@ -38,6 +38,7 @@ jobs:
           
       - name: Run shellcheck
         run: sh ./trunk/tools/shellcheck.sh
+        
       - name: Prepare toolchain
         run: |
           cd toolchain-mipsel
