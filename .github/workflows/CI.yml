@@ -29,7 +29,7 @@ jobs:
           - build_variant: "D"
             targets: "XY-C1 JCG-836PRO-5.0 JCG-AC860M-5.0 JCG-Y2-5.0 DIR-882-5.0 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
           - build_variant: "E"
-            targets: "MI-3C  MI-R3P-breed  NETGEAR-BZV  ZTE_E8820S MI-R4A NETGEAR-CHJ R2100 R6220 MI-R3P"
+            targets: "MI-3C MI-R3P MI-R3P-breed MI-R4A NETGEAR-BZV NETGEAR-CHJ R2100 R6220 ZTE_E8820S"
     steps:
       - uses: actions/checkout@v2
       
