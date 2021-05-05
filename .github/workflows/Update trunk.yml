@@ -1,0 +1,36 @@
+name: Update trunk
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - '.github/workflows/r2s_lean_minimal.yml'
+  schedule:
+    - cron: '00 21 * * *'
+  workflow_dispatch:
+    ref: refs/heads/master
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-18.04
+    if: github.event.repository.owner.id == github.event.sender.id
+    
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          ref: master
+
+      - name: svn co
+        run: svn co https://github.com/hanwckf/rt-n56u/trunk/trunk
+        
+      - name: 提交到本地暂存区
+        run: git add trunk/.svn/
+        
+      - name: 提交当前工作空间的修改内容
+        run: git commit -m“Update trunk”
+        
+      - name: 更新到github
+        run: git push        
