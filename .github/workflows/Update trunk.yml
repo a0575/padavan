@@ -2,8 +2,8 @@ name: Update trunk
 
 on:
 
-  schedule:
-    - cron: '00 21 * * *'
+  #schedule:
+    #- cron: '00 21 * * *'
   workflow_dispatch:
 
 jobs:
