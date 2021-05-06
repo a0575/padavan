@@ -31,6 +31,9 @@ jobs:
 
       - name: 添加文件到暂存区
         run: git add .
+             
+      - name: 暂存区全部文件替换工作区
+        run: git checkout .
 
       - name: 提交
         run: git commit -am 'Auto Update'
