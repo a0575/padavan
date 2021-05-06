@@ -49,7 +49,7 @@ jobs:
         
       - name: Start build
         run: |
-          cd /opt/rt-n56u/trunk
+          cd trunk
           mkdir -p ${images_dir}
           for m in $targets; do fakeroot ./build_firmware_ci $m; \
           if [ $? = 0 ]; then cp -f images/*.trx ${images_dir}/$m.trx; else exit 1; fi; \
