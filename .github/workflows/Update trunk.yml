@@ -18,19 +18,20 @@ jobs:
         
       - name: 设置帐户
         run: git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
-        
+
       - name: 复制
         run: svn co https://github.com/hanwckf/rt-n56u/trunk/trunk new 
-          
-          
+  
+      - name: 添加文件到暂存区
+        run: git add .   
+ 
       - name: 整理
         run: | 
           cp -r new/. trunk/
           rm -rf new
-        
+
       - name: 提交
         run: git commit -am 'Auto Update'
-          
-        
+
       - name: 更新
         run: git push
