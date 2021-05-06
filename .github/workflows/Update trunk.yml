@@ -30,6 +30,7 @@ jobs:
         run: | 
           cp -r new/. trunk/
           rm -rf new
+          rm -rf trunk/.svn
 
       - name: 提交
         run: git commit -am 'Auto Update'
