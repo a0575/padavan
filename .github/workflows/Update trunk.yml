@@ -13,8 +13,9 @@ jobs:
     
     steps:
 
-      - name: Checkout
-        uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
         
       - name: 设置帐户
         run: git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
