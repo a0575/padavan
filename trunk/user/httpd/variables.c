@@ -634,6 +634,8 @@
 			{"ddns_hostname2_x", "", NULL, EVM_RESTART_DDNS},
 			{"ddns_hostname3_x", "", NULL, EVM_RESTART_DDNS},
 			{"ddns_wildcard_x", "", NULL, EVM_RESTART_DDNS},
+			{"ddns2_wildcard_x", "", NULL, EVM_RESTART_DDNS},
+			{"ddns_ipv6", "", NULL, EVM_RESTART_DDNS},
 			{"ddns_cst_svr", "", NULL, EVM_RESTART_DDNS },
 			{"ddns_cst_url", "", NULL, EVM_RESTART_DDNS },
 			{"ddns_period", "", NULL, EVM_RESTART_DDNS },
@@ -641,10 +643,9 @@
 			{"ddns_verbose", "", NULL, EVM_RESTART_DDNS },
 			{"ddns_source", "", NULL, EVM_RESTART_DDNS },
 			{"ddns_checkip", "", NULL, EVM_RESTART_DDNS },
-#if defined (SUPPORT_DDNS_SSL)
+			{"ddns2_checkip", "", NULL, EVM_RESTART_DDNS },
 			{"ddns_ssl", "", NULL, EVM_RESTART_DDNS },
 			{"ddns2_ssl", "", NULL, EVM_RESTART_DDNS },
-#endif
 			{"ddns2_server", "", NULL, EVM_RESTART_DDNS },
 			{"ddns2_hname", "", NULL, EVM_RESTART_DDNS },
 			{"ddns2_user", "", NULL, EVM_RESTART_DDNS },
@@ -740,7 +741,7 @@
 #if defined(USE_MT76X2_AP)
 			{"wl_VgaClamp", "", NULL, EVM_RESTART_WIFI5},
 #endif
-#if defined (USE_WID_5G) && USE_WID_5G==7615
+#if defined (USE_WID_5G) && (USE_WID_5G==7615 || USE_WID_5G==7915)
 			{"wl_mumimo", "", NULL, EVM_RESTART_WIFI5},
 #endif
 			{"wl_country_code", "", NULL, EVM_RESTART_WIFI5},
@@ -912,9 +913,8 @@
 #if defined(USE_MT76X2_AP)
 			{"rt_VgaClamp", "", NULL, EVM_RESTART_WIFI2},
 #endif
-#if defined (USE_WID_2G) && USE_WID_2G==7615
+#if defined (USE_WID_2G) && (USE_WID_2G==7615 || USE_WID_2G==7915)
 			{"rt_turbo_qam", "", NULL, EVM_RESTART_WIFI2},
-			{"rt_airtimefairness", "", NULL, EVM_RESTART_WIFI2},
 #endif
 			{"rt_country_code", "", NULL, EVM_RESTART_WIFI2},
 			{"rt_stream_tx", "", NULL, EVM_RESTART_WIFI2},
