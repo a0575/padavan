@@ -29,11 +29,11 @@ jobs:
           rm -rf new
           rm -rf trunk/.svn
 
-      - name: 添加文件到暂存区
+      - name: 添加所有修改文件到暂存区
         run: git add .
              
-      - name: 暂存区全部文件替换工作区
-        run: git checkout .
+      #- name: 暂存区全部文件替换工作区
+        #run: git checkout .
 
       - name: 提交
         run: git commit -am 'Auto Update'
