@@ -2,8 +2,8 @@ name: Update trunk
 
 on:
 
-  #schedule:
-    #- cron: '00 21 * * *'
+  schedule:
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -11,36 +11,25 @@ jobs:
   build:
 
     runs-on: ubuntu-20.04
-    if: github.event.repository.owner.id == github.event.sender.id
+    if: github.repository_owner=='a0575'
     
     steps:
 
       - name: Checkout
         uses: actions/checkout@master
         
-      - name: 初始化操作
-        run: | 
-          git config -global user.name <name> #设置提交者名字
-          git config -global user.email <email> #设置提交者邮箱
-          #git config -list #检查已有的配置信息
+      - name: 复制
+        run: svn co https://github.com/hanwckf/rt-n56u/trunk/trunk new 
           
-      - name: 创建版本库
+          
+      - name: 整理
         run: | 
-          git init #初始化本地版本库
-          git clone https://github.com/hanwckf/rt-n56u.git new #克隆远程版本库
-          #git commit -a #设置修改文件后不需要执行 git add 命令，直接来提交
-          #cp -r new/trunk/. trunk/
-          #rm -rf new
+          cp -r new/. trunk/
+          rm -rf new
         
-      - name: 提交到本地暂存区
-        run: |
-          #git add <file> #添加指定的文件
-          git add . #添加所有改动过的文件
-          #git mv <old> <new> #文件重命名
-          #git rm <file> #删除文件
+      - name: 提交
+        run: git commit -am 'Auto Update'
+          
         
-      - name: 提交当前工作空间的修改内容
-        run: git commit -m“Update trunk” #提交所有更新过的文件
-        
-      - name: 更新到github
-        run: git push        
+      - name: 更新
+        run: git push
