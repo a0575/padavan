@@ -1,9 +1,7 @@
 name: Update trunk
 
-on:
-
-  schedule:
-    - cron: '0 1 * * *'
+on: 
+  repository_dispatch:
   workflow_dispatch:
 
 jobs:
