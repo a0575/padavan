@@ -22,15 +22,15 @@ jobs:
 
       - name: 复制
         run: |
-          svn export https://github.com/00575/padavan/trunk/trunk new2
+          #svn export https://github.com/00575/padavan/trunk/trunk new2
           svn export https://github.com/hanwckf/rt-n56u/trunk/trunk new1
       
       - name: 整理
         run: | 
           cp -r new1/. trunk/
-          cp -r new2/. trunk/
+          #cp -r new2/. trunk/
           rm -rf new1
-          rm -rf new2
+          #rm -rf new2
           #rm -rf trunk/.svn
 
       - name: 添加文件到暂存区
