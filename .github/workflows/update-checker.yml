@@ -36,10 +36,10 @@ jobs:
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.workflow_token }}
-        event-type: Update
+        event-type: Update Build
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 1
-        keep_minimum_runs: 1
+        retain_days: 3
+        keep_minimum_runs: 3
