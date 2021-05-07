@@ -22,16 +22,18 @@ jobs:
 
       - name: 复制
         run: |
-          svn co https://github.com/00575/padavan/trunk/trunk trunk
-          svn co https://github.com/hanwckf/rt-n56u/trunk/trunk new 
+          svn co https://github.com/00575/padavan/trunk/trunk new2
+          svn co https://github.com/hanwckf/rt-n56u/trunk/trunk new1
       
       - name: 整理
         run: | 
-          cp -r new/. trunk/
-          rm -rf new
+          cp -r new1/. trunk/
+          cp -r new2/. trunk/
+          rm -rf new1
+          rm -rf new2
           rm -rf trunk/.svn
 
-      - name: 添加所有修改文件到暂存区
+      - name: 添加文件到暂存区
         run: git add .
              
       #- name: 暂存区全部文件替换工作区
