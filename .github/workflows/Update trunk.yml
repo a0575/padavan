@@ -22,8 +22,8 @@ jobs:
 
       - name: 复制
         run: |
-          svn co https://github.com/00575/padavan/trunk/trunk new2
-          svn co https://github.com/hanwckf/rt-n56u/trunk/trunk new1
+          svn export https://github.com/00575/padavan/trunk/trunk new2
+          svn export https://github.com/hanwckf/rt-n56u/trunk/trunk new1
       
       - name: 整理
         run: | 
