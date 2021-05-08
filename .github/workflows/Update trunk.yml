@@ -29,6 +29,7 @@ jobs:
         run: | 
           cp -r new1/. trunk/
           #cp -r new2/. trunk/
+          cp -r scripts/. trunk/
           rm -rf new1
           #rm -rf new2
           #rm -rf trunk/.svn
