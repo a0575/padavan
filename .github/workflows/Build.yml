@@ -10,7 +10,7 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-20.04
-    if: ${{ !(github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')) }}
+    if: github.repository_owner=='a0575'
     env:
       build_variant: ${{ matrix.build_variant }}
       targets: ${{ matrix.targets }}
@@ -43,7 +43,7 @@ jobs:
         
       - name: Run shellcheck
         run: |
-          cp -r scripts/. trunk/
+          #cp -r scripts/. trunk/
           sh ./trunk/tools/shellcheck.sh
         
       - name: Prepare toolchain
