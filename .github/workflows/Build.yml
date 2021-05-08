@@ -43,7 +43,7 @@ jobs:
         
       - name: Run shellcheck
         run: |
-          #cp -r scripts/. trunk/
+          cp -r scripts/. trunk/
           sh ./trunk/tools/shellcheck.sh
         
       - name: Prepare toolchain
