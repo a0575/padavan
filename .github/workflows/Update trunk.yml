@@ -28,9 +28,9 @@ jobs:
           cp -r new/. trunk/
           cp -r scripts/. trunk/
           rm -rf new
-          sed '9c\PROJECT_HOME_URL="https:\/\/https:\/\/github.com\/a0575\/padavan\/" trunk/user/www/Makefile
-          sed '10c\PROJECT_HOME_URL_MOD="https:\/\/https:\/\/github.com\/a0575\/padavan\/" trunk/user/www/Makefile
-          sed '12c\LABEL_COPYRIGHT_TEXT='© 2020-2021 <a href="https:\/\/https:\/\/github.com\/a0575\/padavan\/" target="blank">Padavan<\/a> \& N56U project community \& by <a href="https:\/\/https:\/\/github.com\/a0575\/padavan\/" target="blank">github<\/a>' trunk/user/www/Makefile
+          sed -i '9c\PROJECT_HOME_URL="https:\/\/https:\/\/github.com\/a0575\/padavan\/" trunk/user/www/Makefile
+          sed -i '10c\PROJECT_HOME_URL_MOD="https:\/\/https:\/\/github.com\/a0575\/padavan\/" trunk/user/www/Makefile
+          sed -i '12c\LABEL_COPYRIGHT_TEXT='© 2020-2021 <a href="https:\/\/https:\/\/github.com\/a0575\/padavan\/" target="blank">Padavan<\/a> \& N56U project community \& by <a href="https:\/\/https:\/\/github.com\/a0575\/padavan\/" target="blank">github<\/a>' trunk/user/www/Makefile
 
       - name: 添加文件到暂存区
         run: git add .
