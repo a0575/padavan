@@ -28,8 +28,8 @@ jobs:
           cp -r new/. trunk/
           cp -r scripts/. trunk/
           rm -rf new
-          sed -i 's/\/\/bitbucket.org\/padavan\/rt-n56u\//\/\/github.com\/a0575\/padavan\//g' trunk/user/www/Makefile
-          sed -i 's/https:\/\/github.com\/hanwckf\/rt-n56u\//https:\/\/github.com\/a0575\/padavan\//g' trunk/user/www/Makefile
+          sed -i 's?\/\/bitbucket.org\/padavan\/rt-n56u\//\?github.com\/a0575\/padavan\/?g' trunk/user/www/Makefile
+          sed -i 's?https:\/\/github.com\/hanwckf\/rt-n56u\/?https:\/\/github.com\/a0575\/padavan\/?g' trunk/user/www/Makefile
           sed -i 's/hanwckf/a0575/g' trunk/user/www/Makefile
 
       - name: 添加文件到暂存区
