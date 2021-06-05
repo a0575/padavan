@@ -10,7 +10,7 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-20.04
-    if: github.repository_owner=='a0575'
+    #if: github.repository_owner=='a0575'
     env:
       build_variant: ${{ matrix.build_variant }}
       targets: ${{ matrix.targets }}
