@@ -19,7 +19,7 @@ jobs:
       matrix:
         include:
           - build_variant: "A1"
-            targets: "PSG1208 PSG1218 NEWIFI-MINI MI-MINI MI-3 OYE-001 5K-W20 DIR-878 DIR-882 E8820V2 JCG-Y2 K2P"
+            targets: "PSG1208 PSG1218 NEWIFI-MINI MI-MINI MI-3 MI-4 OYE-001 5K-W20 DIR-878 DIR-882 E8820V2 JCG-Y2 K2P"
           - build_variant: "A2"
             targets: "HC5861B MI-NANO MZ-R13 MZ-R13P 360P2 HC5761A HC5661A K2P_nano MR2600 MR2600-5.0 JCG-836PRO"
           - build_variant: "A3"
