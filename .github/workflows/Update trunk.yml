@@ -1,5 +1,8 @@
 name: Update trunk
 
+env:
+  TZ: Asia/Shanghai
+
 on: 
   repository_dispatch:
   workflow_dispatch:
@@ -9,33 +12,39 @@ jobs:
     runs-on: ubuntu-20.04
     
     steps:
+    
+    - name: 设置日期
+      run: |
+        sudo timedatectl set-timezone "$TZ"
+        #echo "date=$(date +'%m/%d_%Y_%H/%M')" >> $GITHUB_ENV
+        echo "date=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
 
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
         
-      - name: 设置帐户
-        run: git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
+    - name: 设置帐户
+      run: git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
 
-      - name: 复制
-        run: |
-          svn export https://github.com/hanwckf/rt-n56u/trunk/trunk new
-          #svn export https://github.com/hanwckf/rt-n56u/trunk/toolchain-mipsel new1
+    - name: 复制
+      run: |
+        svn export https://github.com/hanwckf/rt-n56u/trunk/trunk new
+        #svn export https://github.com/hanwckf/rt-n56u/trunk/toolchain-mipsel new1
       
-      - name: 整理
-        run: | 
-          cp -r new/. trunk/
-          cp -r scripts/. trunk/
-          rm -rf new
+    - name: 整理
+      run: | 
+        cp -r new/. trunk/
+        cp -r scripts/. trunk/
+        rm -rf new
 
-      - name: 添加文件到暂存区
-        run: git add .
+    - name: 添加文件到暂存区
+      run: git add .
              
-      #- name: 暂存区全部文件替换工作区
-        #run: git checkout .
+    #- name: 暂存区全部文件替换工作区
+      #run: git checkout .
 
-      - name: 提交
-        run: git commit -am 'Auto Update'
+    - name: 提交
+      run: git commit -am 'update-$date'
 
-      - name: 更新
-        run: git push
+    - name: 更新
+      run: git push
